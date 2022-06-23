@@ -26,7 +26,7 @@ Owner.init(
     // dog_personality: req.body.dog_personality,
     // email: req.body.email,
     // password: req.body.password
-    username: {
+    user_name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
@@ -35,33 +35,32 @@ Owner.init(
         len: [4]
       }
     },
-    // owner_name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    // dog_name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    // dog_breed: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    // dog_size: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    // dog_description: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   validate: {
-    //     max: 200
-    //   }
-    // },
+    owner_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    dog_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    dog_breed: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    dog_size: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    dog_description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        max: 200
+      }
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         max: 50,
         isEmail: true

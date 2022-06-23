@@ -3,7 +3,9 @@ const { Owner } = require('../../models');
 
 // GET /api/owners
 router.get('/', (req, res) => {
-  Owner.findAll()
+  Owner.findAll({
+    attributes: { exclude: ['password'] }
+  })
     .then(dbOwnerData => res.json(dbOwnerData))
     .catch(err => {
       console.log(err);
@@ -14,6 +16,7 @@ router.get('/', (req, res) => {
 // GET /api/owners/1
 router.get('/:id', (req, res) => {
   Owner.findOne({
+    attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
     }
@@ -35,13 +38,12 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // expects {owner_name: lernantion, dog_name: 'doggo', dog_breed: 'husky', dog_size: 'large', location: 'austin, tx', dog_description: 'text', username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   Owner.create({
-    username: req.body.username,
-    // owner_name: req.body.owner_name,
-    // dog_name: req.body.dog_name,
-    // dog_breed: req.body.dog_breed,
-    // dog_size: req.body.dog_size,
-    // // location: req.body.location,
-    // dog_description: req.body.dog_description,
+    user_name: req.body.user_name,
+    owner_name: req.body.owner_name,
+    dog_name: req.body.dog_name,
+    dog_breed: req.body.dog_breed,
+    dog_size: req.body.dog_size,
+    dog_description: req.body.dog_description,
     email: req.body.email,
     password: req.body.password
   })
