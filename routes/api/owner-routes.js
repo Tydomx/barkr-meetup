@@ -54,11 +54,34 @@ router.post('/', (req, res) => {
     });
 });
 
+router.post('/login', (req, res) => {
+  Owner.findOne({
+    where: {
+      email: req.body.email
+    }
+  }).then(dbOwnerData => {
+    if (!dbOwnerData) {
+      res.status(400).json({ message: 'No owner with that email address' });
+      return;
+    }
+
+    const validPassword = dbOwnerData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+
+    res.json({ Owner: dbOwnerData, message: 'You are now logged in!' });
+  })
+})
+
 // PUT /api/owners/1
 router.put('/:id', (req, res) => {
   // expects {owner_name: lernantion, dog_name: 'doggo', dog_breed: 'husky', dog_size: 'large', location: 'austin, tx', dog_description: 'text', username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
   Owner.update(req.body, {
+    individualHooks: true,
     where: {
       id: req.params.id
     }
