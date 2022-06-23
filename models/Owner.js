@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 // create our Owner model
 class Owner extends Model { }
@@ -70,23 +71,36 @@ Owner.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
+        // password has to be at least 6 characters long
         len: [6]
       }
     }
   },
   {
-    // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
+    hooks: {
+      // set up beforeCreate lifecycle "hook" functionality
+      async beforeCreate(newOwnerData) {
+        newOwnerData.password = await bcrypt.hash(newOwnerData.password, 10);
+        return newOwnerData;
+      },
+      // setup beforeUpdate lifecycle "hook" functionality
+      async beforeUpdate(updatedOwnerData) {
+        updatedOwnerData.password = await bcrypt.hash(updatedOwnerData.password, 10);
+        return updatedOwnerData;
+      }
+    },
+  // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
 
-    // pass in our imported sequelize connection (the direct connection to our database)
-    sequelize,
-    // don't automatically create createdAt/updatedAt timestamp fields
-    timestamps: false,
-    // don't pluralize name of database table
-    freezeTableName: true,
-    // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
-    underscored: true,
-    // make it so our model name stays lowercase in the database
-    modelName: 'owner'
+  // pass in our imported sequelize connection (the direct connection to our database)
+  sequelize,
+  // don't automatically create createdAt/updatedAt timestamp fields
+  timestamps: false,
+  // don't pluralize name of database table
+  freezeTableName: true,
+  // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
+  underscored: true,
+  // make it so our model name stays lowercase in the database
+  modelName: 'owner'
   }
 );
 
