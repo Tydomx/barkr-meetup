@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Owner } = require('../../models');
 
-// GET 
+// GET /api/owners
 router.get('/', (req, res) => {
   Owner.findAll()
     .then(dbOwnerData => res.json(dbOwnerData))
@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
     })
 });
 
+// GET /api/owners/1
 router.get('/:id', (req, res) => {
   Owner.findOne({
     where: {
@@ -30,17 +31,17 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// POST /api/users
+// POST /api/owners
 router.post('/', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  // expects {owner_name: lernantion, dog_name: 'doggo', dog_breed: 'husky', dog_size: 'large', location: 'austin, tx', dog_description: 'text', username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   Owner.create({
-    owner_name: req.body.owner_name,
-    dog_name: req.body.dog_name,
-    dog_breed: req.body.dog_breed,
-    dog_size: req.body.dog_size,
-    location: req.body.location,
-    dog_description: req.body.dog_description,
     username: req.body.username,
+    // owner_name: req.body.owner_name,
+    // dog_name: req.body.dog_name,
+    // dog_breed: req.body.dog_breed,
+    // dog_size: req.body.dog_size,
+    // // location: req.body.location,
+    // dog_description: req.body.dog_description,
     email: req.body.email,
     password: req.body.password
   })
@@ -51,10 +52,9 @@ router.post('/', (req, res) => {
     });
 });
 
-// PUT /api/users/1
+// PUT /api/owners/1
 router.put('/:id', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-
+  // expects {owner_name: lernantion, dog_name: 'doggo', dog_breed: 'husky', dog_size: 'large', location: 'austin, tx', dog_description: 'text', username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
   Owner.update(req.body, {
     where: {
@@ -74,7 +74,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// DELETE /api/users/1
+// DELETE /api/owners/1
 router.delete('/:id', (req, res) => {
   Owner.destroy({
     where: {
@@ -94,3 +94,4 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+module.exports = router;
