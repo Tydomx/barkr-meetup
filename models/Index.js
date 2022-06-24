@@ -1,3 +1,4 @@
 const Owner = require('./Owner');
+const Post = require('./Post');
 
-module.exports = { Owner };
+module.exports = { Owner, Post };
