@@ -37,8 +37,6 @@ app.set('view engine', 'hbs');
 
 app.use(express.json());
 
-
-
 // turning on routes
 app.use(routes);
 
