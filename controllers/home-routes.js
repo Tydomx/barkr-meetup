@@ -10,11 +10,17 @@ router.get('/', (req, res) => {
 
 //render login page
 router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  
   res.render('login');
 });
 
 // to populate all posts on hompage
 router.get('/', (req, res) => {
+  console.log(req.session);
   Post.findAll({
     attributes: [
       'id',
