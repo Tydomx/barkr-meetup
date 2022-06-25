@@ -26,17 +26,18 @@ const sess = {
   })
 };
 
+app.use(express.urlencoded({ extended: false }));
+
 app.use(session(sess));
 
-//continuation of handlebars set-up
-const hbs = exphbs.create({});
+app.use(express.static('public'));
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine('.hbs', exphbs.engine({ extname: '.hbs' }));
+app.set('view engine', 'hbs');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 // turning on routes
 app.use(routes);
@@ -44,5 +45,5 @@ app.use(routes);
 // turn on connection to db and server
 // true to reset
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening'));
 });
