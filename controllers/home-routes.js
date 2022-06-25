@@ -3,8 +3,14 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, Owner, Comment } = require('../models');
 
+//render homepage 
 router.get('/', (req, res) => {
   res.render('homepage');
+});
+
+//render login page
+router.get('/login', (req, res) => {
+  res.render('login');
 });
 
 // to populate all posts on hompage
