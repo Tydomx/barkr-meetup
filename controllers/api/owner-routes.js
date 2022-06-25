@@ -56,6 +56,7 @@ router.post('/', (req, res) => {
   
       res.json(dbUserData);
     });
+  });
 });
 
 router.post('/login', (req, res) => {
@@ -82,9 +83,9 @@ router.post('/login', (req, res) => {
       req.session.loggedIn = true;
 
     res.json({ Owner: dbOwnerData, message: 'You are now logged in!' });
-    })
-  })
-})
+    });
+  });
+});
 
 //Post route to destroy session and reset cookies
 router.post('/logout', (req, res) => {
