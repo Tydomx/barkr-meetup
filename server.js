@@ -1,7 +1,7 @@
 // importing sequelize, express, and the routes
 const path = require('path');
 const express = require('express');
-const routes = require('./controllers');
+const routes = require('./controllers/');
 const sequelize = require('./config/connection');
 //importing handlebars
 const exphbs = require('express-handlebars');
