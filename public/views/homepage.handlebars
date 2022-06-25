@@ -2,20 +2,22 @@
   <div class="column is-two-thirds news"> BARKR NEWS
     <!-- Single Post Listing -->
     <ol class="post-list">
+      {{#each posts as |post|}}
     <li>
         <article class="post">
         <div class="title">
-            <a href="{{post_url}}" target="_blank">{{title}}</a>
-            <span>({{post_url}})</span>
+            <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
+            <span>({{post.post_url}})</span>
         </div>
         <div class="meta">
-            {{vote_count}} point(s) by {{owner.user_name}} on
-            {{created_at}}
+            {{post.vote_count}} point(s) by {{post.owner.user_name}} on
+            {{post.created_at}}
             |
-            <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
+            <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
         </div>
         </article>
     </li>
+      {{/each}}
     </ol>
   </div>
   <div class="column discover">Discover

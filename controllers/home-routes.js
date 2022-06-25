@@ -1,23 +1,50 @@
 // using res.render for a response for which template to use
 const router = require('express').Router();
+const sequelize = require('../config/connection');
+const { Post, Owner, Comment } = require('../models');
 
 router.get('/', (req, res) => {
   res.render('homepage');
 });
 
+// to populate all posts on hompage
 router.get('/', (req, res) => {
-    res.render('homepage', {
-      id: 1,
-      // do we need this if they are creating a post rather than linking it ?
-      post_url: 'https://handlebarsjs.com/guide/',
-      title: 'Handlebars Docs',
-      created_at: new Date(),
-      vote_count: 10,
-      comments: [{}, {}],
-      owner: {
-        user_name: 'test_user'
+  Post.findAll({
+    attributes: [
+      'id',
+      'post_url',
+      'title',
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: Owner,
+          attributes: ['user_name']
+        }
+      },
+      {
+        model: User,
+        attributes: ['user_name']
       }
+    ]
+  })
+    .then(dbPostData => {
+      //it will loop over and map sequalize object to produce new posts array
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      // pass a single post object into the homepage template
+      console.log(dbPostData[0]);
+      res.render('homepage',{posts});
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  });
+});
+
+
 
 module.exports = router;
