@@ -31,6 +31,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session(sess));
 
 app.use(express.static('public'));
+app.use(express.static('images'));
+
 
 app.engine('.hbs', exphbs.engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
