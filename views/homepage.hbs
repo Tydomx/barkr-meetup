@@ -1,6 +1,10 @@
-<div class="columns is-mobile">
-  <div class="column is-two-thirds news"> BARKR NEWS
+<div class="columns is-vcentered is-centered">
+  <section class="section has-background-warning mx-6">
+  <div class="column is-three-quarters tile is-ancestor has-background-info mx-6">
     <!-- Single Post Listing -->
+    <div class="tile is-parent box has-background-warning-light ">
+    <h2 class="title is-1 has-text-centered "> YOUR DAILY BARKR</h2>
+    <div class="tile is-child">
     <ol class="post-list">
       {{#each posts as |post|}}
     <li>
@@ -19,17 +23,25 @@
     </li>
       {{/each}}
     </ol>
-  </div>
-  <div class="column discover">Discover
-    <div class="box">
-        
-        <div class="block discover">
-            <!--ADD CARDS FOR TOP DOG OWNERS -->
-        </div>
-         <div class="block events">
-            <!--ADD CARDS OR BUTTON FOR EVENTS -->
-        </div>
+    </div>
     </div>
   </div>
+  </section>
+
+
+  <section class="section is-small">
+  <div class="column discover has-background-warning my-6 tile is-ancestor mx-4">
+    <div class="tile is-parent is-vertical has-background-warning-light ">
+          <h2 class=" subtitle is-2 has-text-centered">Discover</h2>
+          <div class=" tile is-child box discover">
+              <!--ADD CARDS FOR TOP DOG OWNERS -->
+          </div>
+          <h2 class=" subtitle is-2 mx-4 has-text-centered">Events</h2>
+          <div class="tile is-child box block events">
+              <!--ADD CARDS OR BUTTON FOR EVENTS -->
+          </div>
+      </div>
+  </div>
 </div>
+</section>
 
