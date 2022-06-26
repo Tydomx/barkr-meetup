@@ -113,7 +113,10 @@
   <script src="/javascript/logout.js"></script>
   <!-- SCRIPT TO NAV BURGER -->
   <script src="/javascript/nav-hamburger.js"></script>
-
+  <!--CONDITIONAL SCRIPT FOR LOGOUT -->
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
