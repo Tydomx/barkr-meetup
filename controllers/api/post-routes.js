@@ -88,6 +88,22 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// PUT route api/posts/upvote
+// Voting will only work if user is logged in
+
+router.put('/upvote', (req, res) => {
+  // make sure the session exists first
+  if (req.session) {
+    // pass session id along with all destructured properties on req.body
+    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, Owner })
+      .then(updatedVoteData => res.json(updatedVoteData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
+});
+
 router.delete('/:id', (req, res) => {
   Post.destroy({
     where: {
