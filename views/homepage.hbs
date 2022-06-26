@@ -7,6 +7,9 @@
     <div class="tile is-child">
     <ol class="post-list">
       {{#each posts as |post|}}
+      <li>
+      {{> post-info post }}
+      </li>
     <li>
         <article class="post">
         <div class="title">
