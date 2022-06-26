@@ -5,7 +5,10 @@ const { Post, Owner, Comment } = require('../models');
 
 //render homepage 
 router.get('/', (req, res) => {
-  res.render('homepage');
+  res.render('homepage',{
+    posts,
+    loggedIn: req.session.loggedIn
+  });
 });
 
 //render login page
