@@ -1,15 +1,15 @@
-<!-- Post Info Partial -->
+<!-- Single-Post Info Partial -->
 {{> post-info post}}
 
 {{#if loggedIn}}
 <form class="comment-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea class="textarea is-info" name="comment-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    <button class="button is-info" type="submit">Add Comment</button>
+    <button type="button" class="upvote-btn button is-warning">Vote</button>
   </div>
 </form>
 {{/if}}
