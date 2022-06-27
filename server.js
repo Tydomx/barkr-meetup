@@ -4,7 +4,9 @@ const express = require('express');
 const routes = require('./controllers/');
 //importing handlebars
 const exphbs = require('express-handlebars');
-
+//importing helpers
+const helpers = require('./utils/helpers');
+const hbs = exphbs.create({ helpers });
 
 const app = express();
 // just in case we can't use a static PORT

@@ -1,0 +1,14 @@
+
+<!-- used this to refer to parent object -->
+<div class="comments">
+  {{#each this}}
+  <section class="comment">
+    <div class="meta">
+      {{owner.username}} on {{format_date created_at}}
+    </div>
+    <div class="text">
+      {{comment_text}}
+    </div>
+  </section>
+  {{/each}}
+</div>
