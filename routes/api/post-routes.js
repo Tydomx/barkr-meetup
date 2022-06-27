@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Owner } = require('../../models');
+const { Post, Owner, Comment } = require('../../models');
 
 // get all posts from one user
 router.get('/', (req, res) => {
@@ -9,6 +9,14 @@ router.get('/', (req, res) => {
     // order is putting the posts in order in descending order
     order: [['created_at', 'DESC']],
     include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'owner_id', 'created_at'],
+        include: {
+          model: Owner,
+          attributes: ['user_name']
+        }
+      },
       {
         model: Owner,
         attributes: ['user_name']
@@ -30,6 +38,14 @@ router.get('/:id', (req, res) => {
     },
     attributes: ['id', 'post_url', 'title', 'created_at'],
     include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'owner_id', 'created_at'],
+        include: {
+          model: Owner,
+          attributes: ['user_name']
+        }
+      },
       {
         model: Owner,
         attributes: ['user_name']
