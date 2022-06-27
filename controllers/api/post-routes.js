@@ -71,7 +71,7 @@ router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
     post_url: req.body.post_url,
-    owner_id: req.body.owner_id
+    owner_id: req.session.owner_id
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -102,6 +102,22 @@ router.put('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+// PUT route api/posts/upvote
+// Voting will only work if user is logged in
+
+router.put('/upvote', (req, res) => {
+  // make sure the session exists first
+  if (req.session) {
+    // pass session id along with all destructured properties on req.body
+    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, Owner })
+      .then(updatedVoteData => res.json(updatedVoteData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
 });
 
 router.delete('/:id', (req, res) => {

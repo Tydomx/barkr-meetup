@@ -1,0 +1,50 @@
+<div class="columns is-vcentered is-centered">
+  <section class="section has-background-warning mx-6">
+  <div class="column is-three-quarters tile is-ancestor has-background-info mx-6">
+    <!-- Single Post Listing -->
+    <div class="tile is-parent box has-background-warning-light ">
+    <h2 class="title is-1 has-text-centered "> YOUR DAILY BARKR</h2>
+    <div class="tile is-child">
+    <ol class="post-list">
+      {{#each posts as |post|}}
+      <li>
+      {{> post-info post }}
+      </li>
+    <li>
+        <article class="post">
+        <div class="title">
+            <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
+            <span>({{post.post_url}})</span>
+        </div>
+        <div class="meta">
+            {{post.vote_count}} point(s) by {{post.owner.user_name}} on
+            {{post.created_at}}
+            |
+            <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
+        </div>
+        </article>
+    </li>
+      {{/each}}
+    </ol>
+    </div>
+    </div>
+  </div>
+  </section>
+
+<!--- DISCOVER SECTION -->
+  <section class="section is-small">
+  <div class="column discover has-background-warning my-6 tile is-ancestor mx-4">
+    <div class="tile is-parent is-vertical has-background-warning-light ">
+          <h2 class=" subtitle is-2 has-text-centered">Discover</h2>
+          <div class=" tile is-child box discover">
+              <!--ADD CARDS FOR TOP DOG OWNERS -->
+          </div>
+          <h2 class=" subtitle is-2 mx-4 has-text-centered">Events</h2>
+          <div class="tile is-child box block events">
+              <!--ADD CARDS OR BUTTON FOR EVENTS -->
+          </div>
+      </div>
+  </div>
+</div>
+</section>
+
