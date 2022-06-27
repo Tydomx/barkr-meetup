@@ -5,8 +5,8 @@ const { Post, Owner, Comment } = require('../models');
 
 //render homepage 
 router.get('/', (req, res) => {
-  res.render('homepage',{
-    posts,
+  res.render('homepage', {
+    Post,
     loggedIn: req.session.loggedIn
   });
 });
@@ -17,7 +17,7 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-  
+
   res.render('login');
 });
 
@@ -52,7 +52,7 @@ router.get('/', (req, res) => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
       // pass a single post object into the homepage template
       console.log(dbPostData[0]);
-      res.render('homepage',{posts});
+      res.render('homepage', { posts });
     })
     .catch(err => {
       console.log(err);
@@ -98,10 +98,10 @@ router.get('/post/:id', (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       // pass data to template
-      res.render('profilepage', { 
+      res.render('profilepage', {
         post,
         loggedIn: req.session.loggedIn
-       });
+      });
     })
     .catch(err => {
       console.log(err);
