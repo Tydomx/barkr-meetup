@@ -1,13 +1,13 @@
 <!-- MODULE EXAMPLE OF POST INFO -->
 <article class="post block is-white">
    <div class="owner-name">
-    <span class="title is-4 has-text-info">{{owner.owner_name}}</span>
-    <span class="title is-4">@{{owner.user_name}}</span>
-    <span class="title is-4"> | {{format_date created_at}}</span>
+    <span class="title is-3 has-text-info has-text-weight-semibold">{{owner.owner_name}}</span>
+    <span class="title is-3">@{{owner.user_name}}</span>
+    <span class="title is-3"> | {{format_date created_at}}</span>
   </div>
  <!--POST TILE WITH URL-->
-  <div class="title">
-    <a href="{{post_url}}" target="_blank">{{title}}</a>
+  <div class="title is-4">
+    <a class="is-capitalized" href="{{post_url}}" target="_blank">{{title}}</a>
     <span>({{format_url post_url}})</span>
   </div>
   <!-- UPVOTES & COMMENTS-->

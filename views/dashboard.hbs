@@ -1,6 +1,27 @@
+<!--PROFILE CARD -->
+<section class="section profile-card">
+  <div class="card">
+    <div class ="card-image">
+      <figure class="image is-4by3">
+        <img src="/public/images/pexels-samson-katt-5255249.jpg" alt="Owner Image" style="width:100%">
+      </figure>
+    </div>
+    <div class="card-content">
+      <h1>{{post.owner.name}} | {{post.owner.user_name}}</h1>
+      <p class="dog-info">Whose Barking In Your House?:{{post.owner.dog_name}},{{post.owner.dog_breed}},{{post.owner.dog_size}} </p>
+      <p class="location">{{post.owner.location}}</p>
+      <p class="Bio">{{post.owner.dog_description}</p>
+    </div>
+    <div class="card-footer">
+      <button class="button is-info">Edit Profile</button>
+      <button class="button is-info">Home</button>
+    </div>
+  </div>
+</section>
 
-<section>
-  <h2>Create New Post</h2>
+<!--CREATE POST FORM -->
+<section class="section box has-background-info-light">
+  <h2 class="title is-2 has-text-centered">Create New Post</h2>
 
   <form class="new-post-form">
     <div>
@@ -8,25 +29,29 @@
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
+      <label for="post-content">Add Your Bark!</label>
+      <textarea class="textarea is-link post-content" id="post-content" placeholder="Add Your Barkr Post"></textarea>
+    </div>
+    <!--NEED TO REMOVE SINCE POST URL ARE CREATED BY USER NOT LINKED -->
+    <div>
       <label for="post-url">Link</label>
       <input id="post-url" name="post-url" />
     </div>
-    <button type="submit" class="btn">Create</button>
+    <button type="submit" class="btn button is-info">Create Post</button>
   </form>
 </section>
-
-
+<!-- USER POSTS WILL POPULATE BELOW -->
 {{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
+<section class="section box">
+  <h2 class="title is-2 has-text-centered">Your Posts</h2>
+  <ul>
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
     </li>
     {{/each}}
-  </ol>
+  </ul>
 </section>
 {{/if}}
 
