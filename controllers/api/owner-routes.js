@@ -65,11 +65,11 @@ router.post('/', (req, res) => {
   // gives server easy access to user info in the route
     .then(dbOwnerData => {
     req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
+      req.session.owner_id = dbOwnerData.id;
+      req.session.username = dbOwnerData.user_name;
       req.session.loggedIn = true;
   
-      res.json(dbUserData);
+      res.json(dbOwnerData);
     });
   });
 });
@@ -93,7 +93,7 @@ router.post('/login', (req, res) => {
     }
     req.session.save(() => {
       // declare session variables
-      req.session.user_id = dbOwnerData.id;
+      req.session.owner_id = dbOwnerData.id;
       req.session.username = dbOwnerData.user_name;
       req.session.loggedIn = true;
 
