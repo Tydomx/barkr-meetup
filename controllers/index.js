@@ -7,6 +7,11 @@ const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
 
+//route to dashboard-routes in controller directory
+const dashboardRoutes = require('./dashboard-routes.js');
+
+router.use('/dashboard', dashboardRoutes);
+
 // route to home-routes in controller directory
 const homeRoutes = require('./home-routes.js');
 

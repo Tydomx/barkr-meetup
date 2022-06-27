@@ -47,13 +47,20 @@
               <div class="navbar-item is-centered">
                 <!-- NAV BUTTONS-->
                 <div class="buttons ">
-                  <a href="/" class="button is-warning">
+                   <a href="/" class="button is-warning">
+                      <strong>Daily Barkr</strong>
+                  </a>
+                  <a href="/dashboard" class="button is-warning">
                       <strong>My Profile</strong>
                   </a>
                   <a href="/events" class="button is-warning">
                       <strong>Events</strong>
                   </a>
+                  {{else}}
                   <a href="/login" class="button is-light" id="logout">
+                      <strong>Log Out</strong> 
+                  </a>
+                  <a href="/login" class="button is-light">
                       <strong>Log In</strong> 
                   </a>
                 </div>
