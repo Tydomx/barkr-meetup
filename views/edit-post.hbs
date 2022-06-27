@@ -1,33 +1,44 @@
-
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-post-form">
+<!-- EDIT POST FORM -->
+<section class="section box">
+  <article>
+    <a class="button is-info" href="/dashboard"> &larr; Back To Profile</a>
+    <h2 class="title is-2">
+      Edit Post
+    </h2>
+    <form class="edit-post-form">
+      <div class="field">
+        <label class="label">New Title</label>
+        <div class="control">
+          <input name="post-title" type="text" value="{{post.title}}" />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">New Bio</label>
+        <div class="control">
+          <textarea class="textarea" id="dog-description" type="bio" value="{{post.post_content}}"></textarea>
+        </div>
+      </div>
+      <div>
+        {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
+        |
+        <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+      </div>
+      <button type="submit">Save Post</button>
+      <button type="button" class="delete-post-btn button">Delete Post</button>
+    </form>
+  </article>
+</section>
+<!-- Add New Comment-->
+<section class="section">
+  <form class="comment-form">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+      <textarea class="textarea is-info" name="comment-body"></textarea>
     </div>
     <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+      <button class="button" type="submit">Add Comment</button>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
   </form>
-</article>
-
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
+</section>
 
 {{> comments post.comments}}
 
