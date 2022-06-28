@@ -59,10 +59,12 @@
                   <a href="/events" class="button is-warning">
                       <strong>Events</strong>
                   </a>
-                  {{else}}
+                  
+                   
                   <a href="/login" class="button is-light" id="logout">
                       <strong>Log Out</strong> 
                   </a>
+                  {{else}}
                   <a href="/login" class="button is-light">
                       <strong>Log In</strong> 
                   </a>
@@ -73,7 +75,7 @@
               
           </div>
         </div>
-{{/if loggedIn}}
+{{/if}}
 
 <!-- OLD NAV SEARCH BAR 
         <div class="navbar-item field navbar-search">
@@ -121,8 +123,7 @@
     </footer>
   </div>
 
-  <!-- SCRIPT TO LOGOUT JAVASCRIPT -->
-  <script src="/javascript/logout.js"></script>
+ 
   <!-- SCRIPT TO NAV BURGER -->
   <script src="/javascript/nav-hamburger.js"></script>
   <!--CONDITIONAL SCRIPT FOR LOGOUT -->
