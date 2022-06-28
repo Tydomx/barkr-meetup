@@ -5,27 +5,13 @@
     <div class="tile is-parent box has-background-warning-light ">
     <h2 class="title is-1 has-text-centered "> YOUR DAILY BARKR</h2>
     <div class="tile is-child">
-    <ol class="post-list">
+    <ul class="post-list" style="list-style-type:none;">
       {{#each posts as |post|}}
       <li>
       {{> post-info post }}
       </li>
-    <li>
-        <article class="post">
-        <div class="title">
-            <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
-            <span>({{post.post_url}})</span>
-        </div>
-        <div class="meta">
-            {{post.vote_count}} point(s) by {{post.owner.user_name}} on
-            {{post.created_at}}
-            |
-            <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
-        </div>
-        </article>
-    </li>
       {{/each}}
-    </ol>
+    </ul>
     </div>
     </div>
   </div>
@@ -38,10 +24,12 @@
           <h2 class=" subtitle is-2 has-text-centered">Discover</h2>
           <div class=" tile is-child box discover">
               <!--ADD CARDS FOR TOP DOG OWNERS -->
+              <h3 class="title is-5">Coming Soon</h3>
           </div>
           <h2 class=" subtitle is-2 mx-4 has-text-centered">Events</h2>
           <div class="tile is-child box block events">
               <!--ADD CARDS OR BUTTON FOR EVENTS -->
+              <h3 class="title is-5">Coming Soon</h3>
           </div>
       </div>
   </div>

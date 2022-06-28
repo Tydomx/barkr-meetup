@@ -1,10 +1,10 @@
 
 <!-- used this to refer to parent object -->
-<div class="comments">
+<div class="comments box is-warning-light">
   {{#each this}}
   <section class="comment">
     <div class="meta">
-      {{owner.username}} on {{format_date created_at}}
+      {{owner.user_name}} on {{format_date created_at}}
     </div>
     <div class="text">
       {{comment_text}}

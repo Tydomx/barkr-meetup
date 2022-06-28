@@ -52,44 +52,75 @@
         <input class="input" type="password" id="password-login" placeholder="********">
         </div>
     </div>
-
-    <input class="button  is-info has-text-warning" type="submit" value="Log In">
+    <input class="button is-info has-text-warning" type="submit" value="Log In">
     </div>
     </form>
-    
     <!-- BULMA VERSION OF SIGN-UP FORM-->
     <div class="column has-background-warning-light box mx-3">
     <h2 class="title is-3">Sign Up</h2>
     <form method="POST" class="signup-form">
-
-       <div class="field">
+      <div class="field">
         <label class="label owner-signup">Name</label>
         <div class="control">
         <input class="input" type="name" id="owner-signup" placeholder="e.g. Juli Tuck aka The Dogmom">
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label username-signup">Username</label>
+      </div>
+      <div class="field"> 
+        <label class="label username-signup">Dog Name</label>
         <div class="control">
-        <input class="input" type="username" id="username-signup" placeholder="e.g. ilovedogs80">
+        <input class="input" type="dog-name" id="dogname-signup" placeholder="e.g. Elton John">
         </div>
-    </div>
-
-    <div class="field ">
-        <label class="label email-signup">Email</label>
+      </div>
+      <div class="field">
+        <label class="label">Dog Breed</label>
         <div class="control">
-        <input class="input" type="email" id="email-signup" placeholder="e.g. julit@gmail.com">
+          <input class="input" id="dogbreed-signup" type="dog_breed" placeholder="e.g. French Bulldog">
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label password-signup">Password</label>
-        <div class="control">
-        <input class="input" type="password" id="password-signup" placeholder="********">
+      </div>
+        <div class="field">
+            <label class="label">Dog Size</label>
+            <div class="control">
+                <div class="select">
+                <select id="dogsize-signup">
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                </select>
+                </div>
+            </div>
         </div>
-    </div>
-
+        <div class="field">
+          <label class="label">Location</label>
+          <div class="control">
+              <input class="input" id="location-signup" type="location" placeholder="e.g. Houston,TX">
+          </div>
+        </div>
+        <div class="field">
+            <label class="label">Bio</label>
+            <div class="control">
+                <textarea class="textarea" id="dogdescription-signup" type="bio" placeholder="My fur baby, Elton John and I love long walks on the beach, outings at the movies and live concerts."></textarea>
+            </div>
+        </div>
+        <div class="field">
+          <label class="label username-signup">Username</label>
+          <div class="control">
+          <input class="input" type="username" id="username-signup" placeholder="e.g. ilovedogs80">
+          </div>
+        </div>
+        <div class="field ">
+          <label class="label email-signup">Email</label>
+          <div class="control">
+          <input class="input" type="email" id="email-signup" placeholder="e.g. julit@gmail.com">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label password-signup">Password</label>
+          <div class="control">
+          <input class="input" type="password" id="password-signup" placeholder="********">
+          </div>
+     </div>
     <input class="button is-info has-text-warning" type="submit" value="Sign Up">
     </form>
     </div>
