@@ -9,28 +9,30 @@ router.get('/', withAuth, (req, res) => {
       // use the ID from the session
       id: req.session.owner_id
     },
-    // attributes: [
-    //   'id',
-    //   'post_content',
-    //   // 'post_url',
-    //   'title',
-    //   'created_at',
-    //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-    // ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'owner_id', 'created_at'],
-        include: {
-          model: Owner,
-          attributes: ['user_name']
-        }
-      },
-      {
-        model: Post,
-        attributes: ['title']
-      }
-    ]
+    attributes: [
+      'id',
+      'user_name',
+      'owner_name',
+      'dog_name',
+      'dog_breed',
+      'dog_size',
+      'dog_description',
+      'email'
+    ],
+    // include: [
+    //   {
+    //     model: Comment,
+    //     attributes: ['id', 'comment_text', 'post_id', 'owner_id', 'created_at'],
+    //     include: {
+    //       model: Owner,
+    //       attributes: ['user_name']
+    //     }
+    //   },
+    //   {
+    //     model: Post,
+    //     attributes: ['title']
+    //   }
+    // ]
   })
     .then(dbPostData => {
       // serialize data before passing to template
