@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
   Comment.findAll()
@@ -19,7 +20,7 @@ router.post('/', (req, res) => {
       comment_text: req.body.comment_text,
       post_id: req.body.post_id,
       // use the id from the session
-      user_id: req.session.user_id
+      owner_id: req.session.owner_id
     })
       .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {

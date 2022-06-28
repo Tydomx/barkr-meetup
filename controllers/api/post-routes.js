@@ -1,11 +1,13 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { Post, Owner, Comment, Vote } = require('../../models');
 
 // get all posts from one user
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
-    attributes: ['id', 'post_content', 'title', 'created_at'],
+    attributes: ['id', 'post_content', 'title', 'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
     // order is putting the posts in order in descending order
     order: [['created_at', 'DESC']],
     include: [

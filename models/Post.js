@@ -18,7 +18,10 @@ Post.init(
     },
     post_content: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        max: 200
+      }
     },
     owner_id: {
       type: DataTypes.INTEGER,
