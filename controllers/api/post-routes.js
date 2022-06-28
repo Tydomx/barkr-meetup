@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Owner, Comment } = require('../../models');
+const { Post, Owner, Comment, Vote } = require('../../models');
 
 // get all posts from one user
 router.get('/', (req, res) => {
@@ -80,6 +80,16 @@ router.post('/', (req, res) => {
     });
 });
 
+// PUT /api/posts/upvote
+router.put('/upvote', (req, res) => {
+  Vote.create({
+    owner_id: req.body.owner_id,
+    post_id: req.body.post_id
+  })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => res.json(err));
+});
+
 router.put('/:id', (req, res) => {
   Post.update(
     {
@@ -107,18 +117,18 @@ router.put('/:id', (req, res) => {
 // PUT route api/posts/upvote
 // Voting will only work if user is logged in
 
-router.put('/upvote', (req, res) => {
-  // make sure the session exists first
-  if (req.session) {
-    // pass session id along with all destructured properties on req.body
-    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, Owner })
-      .then(updatedVoteData => res.json(updatedVoteData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  }
-});
+// router.put('/upvote', (req, res) => {
+//   // make sure the session exists first
+//   if (req.session) {
+//     // pass session id along with all destructured properties on req.body
+//     Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, Owner })
+//       .then(updatedVoteData => res.json(updatedVoteData))
+//       .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+//   }
+// });
 
 router.delete('/:id', (req, res) => {
   Post.destroy({

@@ -3,13 +3,14 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, Owner, Comment } = require('../models');
 
-//render homepage - moved into get route for homepage
-//router.get('/', (req, res) => {
-  //res.render('homepage',{
-    //posts,
-    //loggedIn: req.session.loggedIn
-  //});
-//});
+
+//render homepage 
+router.get('/', (req, res) => {
+  res.render('homepage', {
+    Post,
+    loggedIn: req.session.loggedIn
+  });
+});
 
 //render login page
 router.get('/login', (req, res) => {
@@ -17,7 +18,7 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-  
+
   res.render('login');
 });
 
@@ -101,10 +102,10 @@ router.get('/post/:id', (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       // pass data to template
-      res.render('profilepage', { 
+      res.render('profilepage', {
         post,
         loggedIn: req.session.loggedIn
-       });
+      });
     })
     .catch(err => {
       console.log(err);

@@ -26,7 +26,7 @@ Post.init(
     owner_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Owner',
+        model: 'owner',
         key: 'id'
       }
     }
@@ -35,7 +35,7 @@ Post.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Post'
+    modelName: 'post'
   }
 );
 
