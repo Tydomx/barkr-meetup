@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Owner, Post, Comment } = require('../../models');
+const { Owner, Post, Comment, Vote } = require('../../models');
 
 // GET /api/owners
 router.get('/', (req, res) => {
@@ -24,6 +24,12 @@ router.get('/:id', (req, res) => {
       {
         model: Post,
         attributes: ['id', 'title', 'post_url', 'created_at']
+      },
+      {
+        model: Post,
+        attributes: ['title'],
+        through: Vote,
+        as: 'voted_posts'
       },
       {
         model: Comment,
@@ -62,16 +68,16 @@ router.post('/', (req, res) => {
     email: req.body.email,
     password: req.body.password
   })
-  // gives server easy access to user info in the route
+    // gives server easy access to user info in the route
     .then(dbOwnerData => {
-    req.session.save(() => {
-      req.session.owner_id = dbOwnerData.id;
-      req.session.username = dbOwnerData.user_name;
-      req.session.loggedIn = true;
-  
-      res.json(dbOwnerData);
+      req.session.save(() => {
+        req.session.owner_id = dbOwnerData.id;
+        req.session.username = dbOwnerData.user_name;
+        req.session.loggedIn = true;
+
+        res.json(dbOwnerData);
+      });
     });
-  });
 });
 
 router.post('/login', (req, res) => {
@@ -97,7 +103,7 @@ router.post('/login', (req, res) => {
       req.session.username = dbOwnerData.user_name;
       req.session.loggedIn = true;
 
-    res.json({ Owner: dbOwnerData, message: 'You are now logged in!' });
+      res.json({ Owner: dbOwnerData, message: 'You are now logged in!' });
     });
   });
 });
