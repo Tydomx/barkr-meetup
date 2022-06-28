@@ -4,19 +4,19 @@ const { Post, Owner, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
-  Post.findAll({
+  Owner.findOne({
     where: {
       // use the ID from the session
-      owner_id: req.session.owner_id
+      id: req.session.owner_id
     },
-    attributes: [
-      'id',
-      'post_content',
-      // 'post_url',
-      'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-    ],
+    // attributes: [
+    //   'id',
+    //   'post_content',
+    //   // 'post_url',
+    //   'title',
+    //   'created_at',
+    //   [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+    // ],
     include: [
       {
         model: Comment,
@@ -27,15 +27,17 @@ router.get('/', withAuth, (req, res) => {
         }
       },
       {
-        model: Owner,
-        attributes: ['user_name']
+        model: Post,
+        attributes: ['title']
       }
     ]
   })
     .then(dbPostData => {
       // serialize data before passing to template
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+      // const posts = dbPostData.map(post => post.get({ plain: true }));
+      console.log(dbPostData);
+      const owner = dbPostData.get({ plain: true });
+      res.render('dashboard', { owner, loggedIn: true });
     })
     .catch(err => {
       console.log(err);

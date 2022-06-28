@@ -7,10 +7,10 @@
       </figure>
     </div>
     <div class="card-content">
-      <h1>{{post.owner.owner_name}} | {{post.owner.user_name}}</h1>
-      <p class="dog-info">Whose Barking In Your House?:{{post.owner.dog_name}},{{post.owner.dog_breed}},{{post.owner.dog_size}} </p>
-      <p class="location">{{post.owner.location}}</p>
-      <p class="bio">{{post.owner.dog_description}}</p>
+      <h1>{{owner.owner_name}} | {{owner.user_name}}</h1>
+      <p class="dog-info">Whose Barking In Your House?:{{owner.dog_name}},{{owner.dog_breed}},{{owner.dog_size}} </p>
+      <p class="location">{{owner.location}}</p>
+      <p class="bio">{{owner.dog_description}}</p>
     </div>
     <div class="card-footer">
       <button class="button is-info">Edit Profile</button>
@@ -18,6 +18,7 @@
     </div>
   </div>
 </section>
+{{log owner}}
 
 <!--CREATE POST FORM -->
 <section class="section box has-background-info-light">
