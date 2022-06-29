@@ -21,7 +21,7 @@
         <div class="navbar-brand">
           <!--BARKR LOGO-->
           <a class="navbar-item" href="/">
-          <img src="" width="250" height="28" alt="Barkr: Social Network For Dog Lovers">
+          <img src="/images/small logo black.png" width="250" height="28" alt="Barkr: Social Network For Dog Lovers">
           </a>
           <!-- NAV BURGER FOR MOBILE & TABLET-->
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
@@ -48,23 +48,41 @@
                 <!-- NAV BUTTONS-->
                 <div class="buttons ">
                    <a href="/" class="button is-warning">
-                      <strong>Daily Barkr</strong>
+                     <span class="icon is-small">
+                      <i class="fa-solid fa-paw"></i>
+                    </span>
+                    <strong>Daily Barkr</strong>
                   </a>
                   <a href="/dashboard" class="button is-warning">
-                      <strong>My Profile</strong>
+                    <span class="icon is-small">
+                      <i class="fa-solid fa-shield-dog"></i>
+                    </span>
+                    <strong>My Profile</strong>
                   </a>
                   <a href="/dashboard" class="button is-warning">
-                      <strong>Create Post</strong>
+                    <span class="icon is-small">
+                      <i class="fa-solid fa-pencil"></i>
+                    </span>
+                    <strong>Create Post</strong>
                   </a>
                   <a href="/events" class="button is-warning">
-                      <strong>Events</strong>
+                    <span class="icon is-small">
+                      <i class="fa-solid fa-calendar-days"></i>
+                    </span>
+                    <strong>Events</strong>
                   </a>
                   <a href="/login" class="button is-light" id="logout">
-                      <strong>Log Out</strong> 
+                    <span class="icon is-small">
+                      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </span>
+                    <strong>Log Out</strong>
                   </a>
                   {{else}}
                   <a href="/login" class="button is-light">
-                      <strong>Log In</strong> 
+                     <span class="icon is-small">
+                      <i class="fa-solid fa-bone"></i>
+                    </span>
+                    <strong>Log In</strong> 
                   </a>
                 </div>
               </div>
@@ -128,6 +146,8 @@
  {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+  <!-- FONT AWESOME SCRIPT -->
+  <script src="https://kit.fontawesome.com/faf88444c4.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,48 +1,54 @@
-<!--PROFILE CARD -->
-<section class="section profile-card">
+<!--PROFILE PAGE -->
+<section class="section profile-card mx-4 my-4">
   <div class="card">
     <div class ="card-image">
       <figure class="image is-4by3">
-        <img src="/public/images/pexels-samson-katt-5255249.jpg" alt="Owner Image" style="width:100%">
+        <img src="/images/pexels-samson-katt-5255249.jpg" alt="Owner Image" style="width:100%">
       </figure>
     </div>
     <div class="card-content">
-      <h1>{{post.owner.name}} | {{post.owner.user_name}}</h1>
-      <p class="dog-info">Whose Barking In Your House?:{{post.owner.dog_name}},{{post.owner.dog_breed}},{{post.owner.dog_size}} </p>
-      <p class="location">{{post.owner.location}}</p>
-      <p class="bio">{{post.owner.dog_description}}</p>
+      <h1 class="title is-2">{{owner.owner_name}} | {{owner.user_name}}</h1>
+      <br>
+      <p class=" title is-3 dog-info">Whose Barking In Your House?:{{owner.dog_name}},{{owner.dog_breed}},{{owner.dog_size}} </p>
+      <br>
+      <p class="title is-3 location">{{owner.location}}</p>
+      <br>
+      <p class=" title is-4 bio">{{owner.dog_description}}</p>
     </div>
     <div class="card-footer">
-      <button class="button is-info">Edit Profile</button>
-      <button class="button is-info">Home</button>
+      <button class="button is-info is-fullwidth">Edit Profile</button>
     </div>
   </div>
 </section>
-
 <!--CREATE POST FORM -->
-<section class="section box has-background-info-light">
+<section class="section box has-background-info-light mx-4 my-4">
   <h2 class="title is-2 has-text-centered">Create New Post</h2>
-
   <form class="new-post-form">
-    <div>
+    <div class="field">
       <label for="post-title">Title</label>
+      <div class="control">
       <input type="text" id="post-title" name="post-title" />
     </div>
-    <div>
+    </div>
+    <div class="field">
       <label for="post-content">Add Your Bark!</label>
+      <div class="control">
       <textarea class="textarea is-link post-content" id="post-content" placeholder="Add Your Barkr Post"></textarea>
     </div>
+    </div>
     <!--NEED TO REMOVE SINCE POST URL ARE CREATED BY USER NOT LINKED -->
-    <div>
+    <div class="field">
       <label for="post-url">Link</label>
+      <div class="control">
       <input id="post-url" name="post-url" />
+    </div>
     </div>
     <button type="submit" class="btn button is-info">Create Post</button>
   </form>
 </section>
 <!-- USER POSTS WILL POPULATE BELOW -->
 {{#if posts.length}}
-<section class="section box">
+<section class="section box my-4 mx-4">
   <h2 class="title is-2 has-text-centered">Your Posts</h2>
   <ul>
     {{#each posts as |post|}}

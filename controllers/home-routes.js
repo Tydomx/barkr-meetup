@@ -25,11 +25,12 @@ router.get('/login', (req, res) => {
 // to populate all posts on hompage
 router.get('/', (req, res) => {
   console.log(req.session);
+  // this posts a post with title, it's content
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
       'title',
+      'post_content',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -44,7 +45,7 @@ router.get('/', (req, res) => {
       },
       {
         model: Owner,
-        attributes: ['user_name']
+        attributes: ['user_name', 'owner_name']
       }
     ]
   })
@@ -72,7 +73,7 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      'post_content',
       'title',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
