@@ -1,7 +1,7 @@
 <!-- EDIT POST FORM -->
 <section class="section box">
   <article>
-    <a class="button is-info" href="/createpost"> &larr; Back To Profile</a>
+    <a class="button is-info" href="/createpost"> &larr; Back To Posts</a>
     <h2 class="title is-2">
       Edit Post
     </h2>
@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="field">
-        <label class="label">New content</label>
+        <label class="label">New Content</label>
         <div class="control">
           <textarea class="textarea" id="dog-description" type="bio" value="{{post.post_content}}"></textarea>
         </div>
@@ -23,8 +23,8 @@
         |
         <a href="/post/{{post.id}}">{{post.comments.length}} {{post.comments.length}}</a>
       </div>
-      <button type="submit">Save Post</button>
-      <button type="button" class="delete-post-btn button">Delete Post</button>
+      <button class="button is-info" type="submit">Save Post</button>
+      <button class="button is-info" type="button" class="delete-post-btn button">Delete Post</button>
     </form>
   </article>
 </section>
