@@ -2,15 +2,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, Owner, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 
-//render homepage 
-router.get('/', (req, res) => {
-  res.render('homepage', {
-    Post,
-    loggedIn: req.session.loggedIn
-  });
-});
 
 //render login page
 router.get('/login', (req, res) => {
@@ -23,14 +17,16 @@ router.get('/login', (req, res) => {
 });
 
 // to populate all posts on hompage
-router.get('/', (req, res) => {
-  console.log(req.session);
-  // this posts a post with title, it's content
+router.get('/', withAuth, (req, res) => {
   Post.findAll({
+    where: {
+      // use the ID from the session
+      owner_id: req.session.owner_id
+    },
     attributes: [
       'id',
-      'title',
       'post_content',
+      'title',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -50,14 +46,9 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbPostData => {
-      //it will loop over and map sequalize object to produce new posts array
+      // serialize data before passing to template
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      // pass a single post object into the homepage template
-      console.log(dbPostData[0]);
-      res.render('homepage', {
-        posts,
-        loggedIn: req.session.loggedIn
-      });
+      res.render('homepage', { posts, loggedIn: true });
     })
     .catch(err => {
       console.log(err);

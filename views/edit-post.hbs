@@ -13,13 +13,13 @@
         </div>
       </div>
       <div class="field">
-        <label class="label">New Bio</label>
+        <label class="label">New content</label>
         <div class="control">
           <textarea class="textarea" id="dog-description" type="bio" value="{{post.post_content}}"></textarea>
         </div>
       </div>
       <div>
-        {{post.vote_count}} {{post.vote_count}} by you on {{post.created_at}}
+        by you on {{post.created_at}}
         |
         <a href="/post/{{post.id}}">{{post.comments.length}} {{post.comments.length}}</a>
       </div>
@@ -28,20 +28,6 @@
     </form>
   </article>
 </section>
-<!-- Add New Comment-->
-<section class="section">
-  <form class="comment-form">
-    <div>
-      <textarea class="textarea is-info" name="comment-body"></textarea>
-    </div>
-    <div>
-      <button class="button" type="submit">Add Comment</button>
-    </div>
-  </form>
-</section>
-
-{{> comments post.comments}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>

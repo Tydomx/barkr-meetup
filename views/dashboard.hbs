@@ -7,7 +7,7 @@
       </figure>
     </div>
     <div class="card-content">
-      <h1 class="title is-2">{{owner.owner_name}} | {{owner.user_name}}</h1>
+      <h1 class="title is-2">{{post_content}} | {{owner.user_name}}</h1>
       <br>
       <p class=" title is-3 dog-info">Whose Barking In Your House?:{{owner.dog_name}},{{owner.dog_breed}},{{owner.dog_size}} </p>
       <br>
@@ -16,49 +16,8 @@
       <p class=" title is-4 bio">{{owner.dog_description}}</p>
     </div>
     <div class="card-footer">
+      {{> post-info post}}
       <button class="button is-info is-fullwidth">Edit Profile</button>
     </div>
   </div>
 </section>
-<!--CREATE POST FORM -->
-<section class="section box has-background-info-light mx-4 my-4">
-  <h2 class="title is-2 has-text-centered">Create New Post</h2>
-  <form class="new-post-form">
-    <div class="field">
-      <label for="post-title">Title</label>
-      <div class="control">
-      <input type="text" id="post-title" name="post-title" />
-    </div>
-    </div>
-    <div class="field">
-      <label for="post-content">Add Your Bark!</label>
-      <div class="control">
-      <textarea class="textarea is-link post-content" id="post-content" placeholder="Add Your Barkr Post"></textarea>
-    </div>
-    </div>
-    <!--NEED TO REMOVE SINCE POST URL ARE CREATED BY USER NOT LINKED -->
-    <div class="field">
-      <label for="post-url">Link</label>
-      <div class="control">
-      <input id="post-url" name="post-url" />
-    </div>
-    </div>
-    <button type="submit" class="btn button is-info">Create Post</button>
-  </form>
-</section>
-<!-- USER POSTS WILL POPULATE BELOW -->
-{{#if posts.length}}
-<section class="section box my-4 mx-4">
-  <h2 class="title is-2 has-text-centered">Your Posts</h2>
-  <ul>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
-    </li>
-    {{/each}}
-  </ul>
-</section>
-{{/if}}
-
-<script src="/javascript/add-post.js"></script>

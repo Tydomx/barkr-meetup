@@ -5,17 +5,26 @@
     <div class="tile is-parent box has-background-warning-light ">
     <h2 class="title is-1 has-text-centered "> YOUR DAILY BARKR</h2>
     <div class="tile is-child">
-    <ul class="post-list" style="list-style-type:none;">
-      {{#each posts as |post|}}
-      <li>
-      {{> post-info post }}
-      </li>
-      {{/each}}
-    </ul>
     </div>
     </div>
   </div>
   </section>
+
+  {{#if posts.length}}
+<section class="section box my-4 mx-4">
+  <h2 class="title is-2 has-text-centered">Your Posts</h2>
+  <ul>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
+      <p>Comments</p>
+      {{> comments post.comments}}
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
 
 <!--- DISCOVER SECTION -->
   <section class="section is-small">

@@ -1,11 +1,12 @@
 <!-- MODULE EXAMPLE OF POST INFO -->
 <article class="post block is-white">
    <div class="owner-name">
-    <span class="title is-3 has-text-info has-text-weight-semibold">{{post.owner_name}}</span>
-    <span class="title is-3">@{{post.user_name}}</span>
-    <span class="title is-3"> | {{created_at}}</span>
+    <span class="title is-3 has-text-info has-text-weight-semibold">{{owner.owner_name}}</span>
+    <span class="title is-3">@{{owner.user_name}}</span>
+    <span class="title is-3"> | {{ created_at}}</span>
   </div>
  <!--POST TILE WITH URL-->
+
   <div class="title is-4">
     <a class="is-capitalized" href="{{post_url}}" target="_blank">{{title}}</a>
     <span>({{owner_name}})</span>
@@ -13,8 +14,8 @@
   </div>
   <!-- UPVOTES & COMMENTS-->
   <div class="meta">
-  {{vote_count}} {{vote_count}}
+  Likes{{vote_count}} 
   |
-  <a href="/post/{{id}}">{{comments.length}} {{comments.length}}</a>
+  <a href="/post/{{id}}">Comment</a>
 </div>
 </article>
