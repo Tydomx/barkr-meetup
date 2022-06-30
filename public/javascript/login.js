@@ -42,7 +42,7 @@ async function signupFormHandler(event) {
     const dogname = document.querySelector('#dogname-signup').value.trim();
     const dogbreed = document.querySelector('#dogbreed-signup').value.trim();
     const dogsize = document.querySelector('#dogsize-signup').value.trim();
-    const location = document.querySelector('#location-signup').value.trim();
+    // const location = document.querySelector('#location-signup').value.trim();
     const dogdescription = document.querySelector('#dogdescription-signup').value.trim();
   
     // does username need to be user_name???
