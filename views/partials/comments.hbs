@@ -1,14 +1,13 @@
 
 <!-- used this to refer to parent object -->
-<div class="comments box is-warning-light">
+<div class="comments">
   {{#each this}}
-  <section class="comment">
+  <div class="comment has-background-warning-light">
+    <div class="text has-text-weight-medium">
+      {{comment_text}}
+    </div>
     <div class="meta">
       {{owner.user_name}} on {{created_at}}
     </div>
-    <div class="text">
-      {{comment_text}}
-    </div>
-  </section>
   {{/each}}
 </div>

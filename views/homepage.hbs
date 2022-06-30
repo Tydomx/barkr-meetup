@@ -1,30 +1,27 @@
-<div class="columns is-vcentered is-centered">
-  <section class="section has-background-warning mx-6">
+<div class="columns is-vcentered is-centered my-4">
+  <section class="section mx-6 mt-2">
   <div class="column is-three-quarters tile is-ancestor has-background-info mx-6">
     <!-- Single Post Listing -->
-    <div class="tile is-parent box has-background-warning-light ">
+    <div class="has-background-info-light ">
     <h2 class="title is-1 has-text-centered "> YOUR DAILY BARKR</h2>
-    <div class="tile is-child">
-    </div>
+      {{#if posts.length}}
+      <section class="section my-4 mx-4">
+        <!--<h2 class="title is-2 has-text-centered">Your Posts</h2>-->
+        <ul>
+        {{#each posts as |post|}}
+          <li class="box">
+            {{> post-info post}}
+            <a href="/createpost/edit/{{post.id}}" class="edit-link">Edit Post</a>
+            <p>Comments</p>
+            {{> comments post.comments}}
+          </li>
+        {{/each}}
+      </ul>
+    </section>
+     {{/if}}
     </div>
   </div>
   </section>
-
-  {{#if posts.length}}
-<section class="section box my-4 mx-4">
-  <h2 class="title is-2 has-text-centered">Your Posts</h2>
-  <ul>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/createpost/edit/{{post.id}}" class="edit-link">Edit Post</a>
-      <p>Comments</p>
-      {{> comments post.comments}}
-    </li>
-    {{/each}}
-  </ul>
-</section>
-{{/if}}
 
 <!--- DISCOVER SECTION -->
   <section class="section is-small">
