@@ -105,4 +105,19 @@ router.get('/post/:id', (req, res) => {
     });
 });
 
+// to populate single username on owner id - for search bar on homepage
+router.get('/search', (req, res) => {
+    const {term} =req.query;
+    Owner.findAll({
+      where:{owner_name: {[Op.like]: '%' + term + '%'}}})
+   .then(owner => res.render('dashboard', {owner, loggedIn: req.session.loggedIn}))
+
+   .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+
+
 module.exports = router;
