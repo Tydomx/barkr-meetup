@@ -1,0 +1,42 @@
+<!--CREATE POST FORM -->
+<section class="section box has-background-info-light mx-4 my-4">
+  <h2 class="title is-2 has-text-centered">Create New Post</h2>
+  <form class="new-post-form">
+    <div class="field">
+      <label for="post-title has-text-weight-bold">Title</label>
+      <div class="control">
+      <input type="text" id="post-title" name="post-title" />
+    </div>
+    </div>
+    <div class="field">
+      <label for="post-content has-text-weight-bold">Add Your Bark!</label>
+      <div class="control">
+      <textarea class="textarea is-link post-content" id="post-content" placeholder="Add Your Barkr Post"></textarea>
+    </div>
+    </div>
+    <!--NEED TO REMOVE SINCE POST URL ARE CREATED BY USER NOT LINKED -->
+    <div class="field">
+      <div class="control">
+    </div>
+    </div>
+    <button type="submit" class="btn button is-info">Create Post</button>
+  </form>
+</section>
+<!-- USER POSTS WILL POPULATE BELOW -->
+{{#if posts.length}}
+<section class="section box my-4 mx-4 has-background-warning-info">
+  <h2 class="title is-2 has-text-centered">Your Posts</h2>
+  <ul>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a class="button is-info" href="/createpost/edit/{{post.id}}" class="edit-link button is-info has-text-white">Edit Post</a>
+      <p>Comments</p>
+      {{> comments post.comments}}
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
+<!--script to add post-->
+<script src="/javascript/add-post.js"></script>

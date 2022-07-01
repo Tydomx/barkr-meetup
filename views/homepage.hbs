@@ -1,0 +1,44 @@
+<div class="columns is-vcentered is-centered my-4">
+  <section class="section mx-6 mt-2">
+  <div class="column is-three-quarters tile is-ancestor has-background-info mx-6">
+    <!-- Single Post Listing -->
+    <div class="has-background-info-light ">
+    <h2 class="title is-1 has-text-centered "> YOUR DAILY BARKR</h2>
+      {{#if posts.length}}
+      <section class="section my-4 mx-4">
+        <!--<h2 class="title is-2 has-text-centered">Your Posts</h2>-->
+        <ul>
+        {{#each posts as |post|}}
+          <li class="box">
+            {{> post-info post}}
+            <a href="/createpost/edit/{{post.id}}" class="edit-link">Edit Post</a>
+            <p>Comments</p>
+            {{> comments post.comments}}
+          </li>
+        {{/each}}
+      </ul>
+    </section>
+     {{/if}}
+    </div>
+  </div>
+  </section>
+
+<!--- DISCOVER SECTION -->
+  <section class="section is-small">
+  <div class="column discover has-background-warning my-6 tile is-ancestor mx-4">
+    <div class="tile is-parent is-vertical has-background-warning-light ">
+          <h2 class=" subtitle is-2 has-text-centered">Discover</h2>
+          <div class=" tile is-child box discover">
+              <!--ADD CARDS FOR TOP DOG OWNERS -->
+              <h3 class="title is-5">Coming Soon</h3>
+          </div>
+          <h2 class=" subtitle is-2 mx-4 has-text-centered">Events</h2>
+          <div class="tile is-child box block events">
+              <!--ADD CARDS OR BUTTON FOR EVENTS -->
+              <h3 class="title is-5">Coming Soon</h3>
+          </div>
+      </div>
+  </div>
+</div>
+</section>
+

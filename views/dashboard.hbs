@@ -1,0 +1,23 @@
+<!--PROFILE PAGE -->
+<section class="section profile-card mx-6 my-6 has-background-info">
+  <div class="card  mx-6 my-6">
+    <div class ="card-image">
+      <figure class="image is-256x256">
+        <img src="/images/pexels-samson-katt-5255249.jpg" alt="Owner Image" style="width:100%">
+      </figure>
+    </div>
+    <div class="card-content mx-4 my-4">
+      <div class="content">
+        <h1 class="title is-4 owner_name">{{owner.owner_name}} | @{{owner.user_name}} </h1>
+        <br>
+        <p class=" subtitle is-5 has-text-left dog-info">Whose Barking In Your House?: {{owner.dog_name}} </p>
+        <p class=" subtitle is-5 has-text-left dog-info">Breed: {{owner.dog_breed}} </p>
+        <p class=" subtitle is-5 has-text-left dog-info">Size: {{owner.dog_size}} </p>
+        <!--<p class="subtitle is-5 has-text-left location">{{owner.location}}</p>-->
+        <p class=" subtitle is-5 has-text-left bio">Bio: {{owner.dog_description}}</p>
+        <br>
+        <button class="button is-info is-fullwidth">Edit Profile</button>
+      </div>
+  </div>
+</section>
+

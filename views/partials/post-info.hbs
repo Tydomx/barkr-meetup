@@ -1,0 +1,22 @@
+<!-- MODULE EXAMPLE OF POST INFO -->
+<article class="post block">
+    <!--POST TILE WITH URL-->
+    <div class="title is-3">
+      <a class="is-capitalized" href="{{post_url}}" target="_blank">{{title}}</a>
+      <span>{{owner_name}}</span>
+      <p class="title is-5">{{post_content}}</p>
+  </div>
+    <!-- Owner Info & Date Posted -->
+   <div class="owner-name">
+    <span class="subtitle is-6 has-text-info has-text-weight-semibold">{{owner.owner_name}}</span>
+    <span class="subtitle is-6">@ {{owner.user_name}}</span>
+    <span class="subtitle is-6"> | {{created_at}}</span>
+  </div>
+  <!-- UPVOTES & COMMENTS-->
+  <div class="meta">
+   <!-- Need To Figure Out Vote URL-->  
+  Like {{vote_count}} 
+  |
+  <a href="/post/{{id}}"> Comment {{comments.length}}</a>
+</div>
+</article>

@@ -1,0 +1,27 @@
+<!-- Single-Post Info Partial -->
+<div class="section my-4 mx-4">
+{{> post-info post}}
+</div>
+
+{{#if loggedIn}}
+<form class="comment-form mt-4 mb-2 mx-4">
+  <div class="field mx-2">
+    <label class="label">Add New Comment Below</label>
+    <div class="control">
+      <textarea class="textarea is-info" name="comment-body"></textarea>
+    </div>
+  </div>
+
+  <div class="field mx-4">
+    <div class="control">
+      <button type="button" class="upvote-btn button is-info">Like</button>
+      <button class="button is-info" type="submit">Add Comment</button>
+    </div>
+  </div>
+</form>
+{{/if}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/upvote.js"></script>
+{{/if}}

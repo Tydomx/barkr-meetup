@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barkr</title>
+  <!--BULMA INSTALL LINK -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      {{#if loggedIn}}
+      <h1>
+        <a href="/">Barker</a>
+      </h1>
+      <!--NAV-->
+      <nav class="navbar is-fixed-top is-info mb-2" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <!--BARKR LOGO-->
+          <a class="navbar-item" href="/">
+          <img src="/images/small logo black.png" width="250" height="28" alt="Barkr: Social Network For Dog Lovers">
+          </a>
+          <!-- NAV BURGER FOR MOBILE & TABLET-->
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="navbar-menu has-background-info" id="navMenu">
+            <div class="navbar-start">
+              <!-- NAV SEARCH BAR-->
+              <div class="navbar-item field navbar-search mx-6">
+                <p class="control has-icons-right">
+                    <input class="input" type="search" placeholder="Search...">
+                    <span class="icon is-small is-right">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="250" height="20" viewBox="0 0 24 24"><path fill="#ddd" d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>
+                    </span>
+                </p>
+              </div>
+        
+            <div class="navbar-end has-background-info mx-6">
+              <div class="navbar-item is-centered">
+                <!-- NAV BUTTONS-->
+                <div class="buttons ">
+                   <a href="/" class="button is-warning">
+                     <span class="icon is-small">
+                      <i class="fa-solid fa-paw"></i>
+                    </span>
+                    <strong>Daily Barkr</strong>
+                  </a>
+                  <a href="/dashboard" class="button is-warning">
+                    <span class="icon is-small">
+                      <i class="fa-solid fa-shield-dog"></i>
+                    </span>
+                    <strong>My Profile</strong>
+                  </a>
+                  <a href="/createpost" class="button is-warning">
+                    <span class="icon is-small">
+                      <i class="fa-solid fa-pencil"></i>
+                    </span>
+                    <strong>Create Post</strong>
+                  </a>
+                  <a href="/events" class="button is-warning">
+                    <span class="icon is-small">
+                      <i class="fa-solid fa-calendar-days"></i>
+                    </span>
+                    <strong>Events</strong>
+                  </a>
+                  <a href="/login" class="button is-light" id="logout">
+                    <span class="icon is-small">
+                      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </span>
+                    <strong>Log Out</strong>
+                  </a>
+                  {{else}}
+                  <a href="/login" class="button is-light">
+                     <span class="icon is-small">
+                      <i class="fa-solid fa-bone"></i>
+                    </span>
+                    <strong>Log In</strong> 
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>  
+              
+          </div>
+        </div>
+{{/if}}
+
+<!-- OLD NAV SEARCH BAR 
+        <div class="navbar-item field navbar-search">
+            <p class="control has-icons-right">
+                <input class="input" type="search" placeholder="Search...">
+                <span class="icon is-small is-right">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="20" viewBox="0 0 24 24"><path fill="#ddd" d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>
+                </span>
+            </p>
+        </div> -->
+        
+
+<!--  OLD NAV ICONS + BUTTONS
+        <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="buttons is-hidden-mobile">
+            <a href="/" class="button is-warning">
+                <strong>My Profile</strong>
+            </a>
+            <a href="/events" class="button is-warning">
+                <strong>Events</strong>
+            </a>
+            <a href="/login" class="button is-light" id="logout">
+                <strong>Log In</strong> 
+            </a>
+            </div>
+            </div>
+        </div>
+        </div> -->
+    </nav>
+    </header>
+
+    <main>
+      {{{ body }}}
+    </main>
+
+    <!--FOOTER -->
+    <footer class="footer has-background-info has-text-white has-text-weight-semibold py-4">
+      <div class="content has-text-centered ">
+        <p>
+          BARKR — SOCIAL NETWORK FOR DOG LOVERS BY RAMA 2022.The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+ 
+  <!-- SCRIPT TO NAV BURGER -->
+  <script src="/javascript/nav-hamburger.js"></script>
+  <!--CONDITIONAL SCRIPT FOR LOGOUT -->
+ {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+  <!-- FONT AWESOME SCRIPT -->
+  <script src="https://kit.fontawesome.com/faf88444c4.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

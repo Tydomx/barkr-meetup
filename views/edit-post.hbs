@@ -1,0 +1,33 @@
+<!-- EDIT POST FORM -->
+<section class="section box">
+  <article>
+    <a class="button is-info" href="/createpost"> &larr; Back To Posts</a>
+    <h2 class="title is-2">
+      Edit Post
+    </h2>
+    <form class="edit-post-form">
+      <div class="field">
+        <label class="label">New Title</label>
+        <div class="control">
+          <input name="post-title" type="text" value="{{post.title}}" />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">New Content</label>
+        <div class="control">
+          <textarea class="textarea" id="dog-description" type="bio" value="{{post.post_content}}"></textarea>
+        </div>
+      </div>
+      <div>
+        by you on {{post.created_at}}
+        |
+        <a href="/post/{{post.id}}">{{post.comments.length}} {{post.comments.length}}</a>
+      </div>
+      <button class="button is-info" type="submit">Save Post</button>
+      <button class="button is-info" type="button" class="delete-post-btn button">Delete Post</button>
+    </form>
+  </article>
+</section>
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
