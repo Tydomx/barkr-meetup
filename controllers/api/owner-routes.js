@@ -38,8 +38,7 @@ router.get('/:id', (req, res) => {
           model: Post,
           attributes: ['title']
         }
-      },
-      // post model goes here
+      }
     ]
   })
     .then(dbOwnerData => {
@@ -72,7 +71,7 @@ router.post('/', (req, res) => {
     .then(dbOwnerData => {
       req.session.save(() => {
         req.session.owner_id = dbOwnerData.id;
-        req.session.username = dbOwnerData.user_name;
+        req.session.user_name = dbOwnerData.user_name;
         req.session.loggedIn = true;
 
         res.json(dbOwnerData);
@@ -100,7 +99,7 @@ router.post('/login', (req, res) => {
     req.session.save(() => {
       // declare session variables
       req.session.owner_id = dbOwnerData.id;
-      req.session.username = dbOwnerData.user_name;
+      req.session.user_name = dbOwnerData.user_name;
       req.session.loggedIn = true;
 
       res.json({ Owner: dbOwnerData, message: 'You are now logged in!' });

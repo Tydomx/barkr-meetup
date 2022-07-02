@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
 // create our Owner model
-class Owner extends Model { 
+class Owner extends Model {
   // set up method to run on instance data to check password
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
@@ -24,14 +24,6 @@ Owner.init(
       // turn on auto increment
       autoIncrement: true
     },
-    // owner_name: req.body.owner_name,
-    // dog_name: req.body.dog_name,
-    // dog_breed: req.body.dog_breed,
-    // dog_size: req.body.dog_size,
-    // location: req.body.location,
-    // dog_personality: req.body.dog_personality,
-    // email: req.body.email,
-    // password: req.body.password
     user_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -94,18 +86,18 @@ Owner.init(
         return updatedOwnerData;
       }
     },
-  // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
+    // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
 
-  // pass in our imported sequelize connection (the direct connection to our database)
-  sequelize,
-  // don't automatically create createdAt/updatedAt timestamp fields
-  timestamps: false,
-  // don't pluralize name of database table
-  freezeTableName: true,
-  // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
-  underscored: true,
-  // make it so our model name stays lowercase in the database
-  modelName: 'owner'
+    // pass in our imported sequelize connection (the direct connection to our database)
+    sequelize,
+    // don't automatically create createdAt/updatedAt timestamp fields
+    timestamps: false,
+    // don't pluralize name of database table
+    freezeTableName: true,
+    // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
+    underscored: true,
+    // make it so our model name stays lowercase in the database
+    modelName: 'owner'
   }
 );
 

@@ -12,7 +12,6 @@ Vote.init(
     },
     owner_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'owner',
         key: 'id'
@@ -20,7 +19,6 @@ Vote.init(
     },
     post_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'post',
         key: 'id'

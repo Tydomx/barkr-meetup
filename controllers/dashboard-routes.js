@@ -4,6 +4,8 @@ const { Post, Owner, Comment, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
+  console.log(req.session);
+  console.log('======================');
   Owner.findOne({
     where: {
       // use the ID from the session
@@ -18,18 +20,6 @@ router.get('/', withAuth, (req, res) => {
       'dog_size',
       'dog_description',
       'email'
-    ],
-    include: [
-      {
-        model: Post,
-        attributes: [
-          'id',
-          'post_content',
-          'title',
-          'created_at',
-          // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-        ]
-      }
     ]
   })
     .then(dbOwnerData => {

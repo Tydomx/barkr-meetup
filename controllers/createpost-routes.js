@@ -4,6 +4,8 @@ const { Post, Owner, Comment, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
+    console.log(req.session);
+    console.log('======================');
     Post.findAll({
         where: {
             // use the ID from the session
@@ -49,10 +51,18 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'id',
             'post_content',
             'created_at',
-            // 'post_url',
             'title',
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
         include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'owner_id', 'created_at'],
+                include: {
+                    model: Owner,
+                    attributes: ['user_name']
+                }
+            },
             {
                 model: Owner,
                 attributes: ['user_name']

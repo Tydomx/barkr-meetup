@@ -1,25 +1,16 @@
-// importing sequelize, express, and the routes
 const path = require('path');
 const express = require('express');
-const routes = require('./controllers/');
-//importing handlebars
+const session = require('express-session');
 const exphbs = require('express-handlebars');
-//importing helpers
-const helpers = require('./utils/helpers');
-const hbs = exphbs.create({ helpers });
 
 const app = express();
-// just in case we can't use a static PORT
 const PORT = process.env.PORT || 3001;
 
-// importing sequelize and sessions
-const sequelize = require('./config/connection');
-const session = require('express-session');
-
+const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  secret: 'Secret!',
+  secret: 'Super secret secret',
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -28,24 +19,21 @@ const sess = {
   })
 };
 
-app.use(express.urlencoded({ extended: false }));
-
 app.use(session(sess));
 
-app.use(express.static('public'));
-app.use(express.static('images'));
+const helpers = require('./utils/helpers');
 
+const hbs = exphbs.create({ helpers });
 
 app.engine('.hbs', exphbs.engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// turning on routes
-app.use(routes);
+app.use(require('./controllers/'));
 
-// turn on connection to db and server
-// true to reset
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
