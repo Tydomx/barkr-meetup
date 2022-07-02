@@ -29,12 +29,14 @@ We built Barkr with the following:
 
 ![Profile Page](/images/profilename.png "My Profile")
 
-![Events](/images/profilename.png "Events")
+![Create Post](/images/createpost.png "Create Post")
+
+![Events](/images/events.png "Events")
+
 
  ## Table of Contents 
  
  - [Installation](#installation)
- - [Usage](#usage)
  - [Credits](#credits)
  - [License](#license)
  - [Features](#features)
@@ -48,9 +50,6 @@ We built Barkr with the following:
 
  For installation, please install [Node](https://nodejs.dev) and write npm i barkr-meetup to get started.
  
- ## Usage
-
-
  ## Credits
 
 *[Tydomx](https://github.com/Tydomx)
