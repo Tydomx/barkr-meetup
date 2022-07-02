@@ -22,6 +22,13 @@ We built Barkr with the following:
 * [bcrypt](https://www.npmjs.com/package/bcryptjs)
 * [Jest](https://jestjs.io/)
  
+
+![Login & Signup Page](/images/login.png "Login & Signup Page")
+
+![Daily Barkr](/images/.png "Daily Barkr — The Homepage")
+
+![Profile Page](/images/profilename.png "My Profile")
+
  ## Table of Contents 
  
  - [Installation](#installation)
