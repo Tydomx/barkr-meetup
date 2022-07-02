@@ -3,8 +3,8 @@
 [!GitHub issues badge](https://img.shields.io/github/issues/Tydomx/barkr-meetup)
 [!GitHub forks badge](https://img.shields.io/github/forks/Tydomx/barkr-meetup)
 [!GitHub stars badge](https://img.shields.io/github/stars/Tydomx/barkr-meetup)
-[GitHub license badge](https://img.shields.io/github/license/Tydomx/barkr-meetup)
-[Twitter badge](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FTydomx%2Fbarkr-meetup)
+[!GitHub license badge](https://img.shields.io/github/license/Tydomx/barkr-meetup)
+[!Twitter badge](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FTydomx%2Fbarkr-meetup)
 
  
  ## Description
@@ -28,6 +28,8 @@ We built Barkr with the following:
 ![Daily Barkr](/images/.png "Daily Barkr — The Homepage")
 
 ![Profile Page](/images/profilename.png "My Profile")
+
+![Events](/images/profilename.png "Events")
 
  ## Table of Contents 
  
