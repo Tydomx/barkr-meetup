@@ -11,7 +11,6 @@
         {{#each posts as |post|}}
           <li class="box">
             {{> post-info post}}
-            <a href="/createpost/edit/{{post.id}}" class="edit-link">Edit Post</a>
             <p>Comments</p>
             {{> comments post.comments}}
           </li>

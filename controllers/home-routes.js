@@ -78,7 +78,7 @@ router.get('/post/:id', (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       // pass data to template
-      res.render('profilepage', {
+      res.render('postcomments', {
         post,
         loggedIn: req.session.loggedIn
       });
