@@ -1,6 +1,7 @@
 //event listener for upvote button on comments 
 
 async function upvoteClickHandler(event) {
+
   event.preventDefault();
   console.log('it works!');
 

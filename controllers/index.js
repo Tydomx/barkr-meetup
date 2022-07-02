@@ -2,6 +2,7 @@
 // also to future-proof the folders
 const router = require('express').Router();
 // routes to api folder for organization sake
+
 const apiRoutes = require('./api/');
 // route to home-routes in controller directory
 const homeRoutes = require('./home-routes.js');
