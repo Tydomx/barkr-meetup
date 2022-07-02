@@ -1,4 +1,4 @@
-
+// LOGIN VALIDATION
 function validateLoginForm(){
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
@@ -26,22 +26,4 @@ function validateLoginForm(){
 
 loginForm.addEventListener('submit',validateLoginForm);
 
-//  const submit = document.getElementById("submit");
-
-// submit.addEventListener("click", validate);
-
-// function validate(e) {
-//   e.preventDefault();
-
-//   const firstNameField = document.getElementById("firstname");
-//   let valid = true;
-
-//   if (!firstNameField.value) {
-//     const nameError = document.getElementById("nameError");
-//     nameError.classList.add("visible");
-//     firstNameField.classList.add("invalid");
-//     nameError.setAttribute("aria-hidden", false);
-//     nameError.setAttribute("aria-invalid", true);
-//   }
-//   return valid;
-// }
+// SIGN UP FORM VALIDATION
