@@ -25,15 +25,15 @@ We built Barkr with the following:
 ### Screenshots of Barkr App
  
 
-![Login & Signup Page](/images/login.png "Login & Signup Page")
+![Login & Signup Page](/public/images/login.png "Login & Signup Page")
 
-![Daily Barkr](/images/homepage.png "Daily Barkr — The Homepage")
+![Daily Barkr](/public/images/homepage.png "Daily Barkr — The Homepage")
 
 ![Profile Page](/images/profilename.png "My Profile")
 
-![Create Post](/images/createpost.png "Create Post")
+![Create Post](/public/images/createpost.png "Create Post")
 
-![Events](/images/events.png "Events")
+![Events](/public/images/events.png "Events")
 
 
  ## Table of Contents 
@@ -69,9 +69,9 @@ We built Barkr with the following:
 
  ## Links
 
-[Deployed On Heroku](https://barkr-meetup.herokuapp.com)
-[Github Repo](https://github.com/Tydomx/barkr-meetup)
-[Presentation](https://docs.google.com/presentation/d/1T1pB9th0iznImvRJMZI2yw61akT2MUZftVwS47kQ6K0/edit?usp=sharing)
+* [Deployed On Heroku](https://barkr-meetup.herokuapp.com)
+* [Github Repo](https://github.com/Tydomx/barkr-meetup)
+* [Presentation](https://docs.google.com/presentation/d/1T1pB9th0iznImvRJMZI2yw61akT2MUZftVwS47kQ6K0/edit?usp=sharing)
 
  ## Contributing
 
