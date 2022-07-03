@@ -29,7 +29,7 @@ We built Barkr with the following:
 
 ![Daily Barkr](/public/images/homepage.png "Daily Barkr — The Homepage")
 
-![Profile Page](/images/profilename.png "My Profile")
+![Profile Page](/public/images/profilename.png "My Profile")
 
 ![Create Post](/public/images/createpost.png "Create Post")
 
