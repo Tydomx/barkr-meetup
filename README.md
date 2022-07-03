@@ -1,10 +1,10 @@
 # Barkr Meetup Project
 
-[!GitHub issues badge](https://img.shields.io/github/issues/Tydomx/barkr-meetup)
-[!GitHub forks badge](https://img.shields.io/github/forks/Tydomx/barkr-meetup)
-[!GitHub stars badge](https://img.shields.io/github/stars/Tydomx/barkr-meetup)
-[!GitHub license badge](https://img.shields.io/github/license/Tydomx/barkr-meetup)
-[!Twitter badge](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FTydomx%2Fbarkr-meetup)
+!\[GitHub issues badge\](https://img.shields.io/github/issues/Tydomx/barkr-meetup)
+!\[!GitHub forks badge\](https://img.shields.io/github/forks/Tydomx/barkr-meetup)
+!\[GitHub stars badge\](https://img.shields.io/github/stars/Tydomx/barkr-meetup)
+!\[!GitHub license badge\](https://img.shields.io/github/license/Tydomx/barkr-meetup)
+!\[!Twitter badge\](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FTydomx%2Fbarkr-meetup)
 
  
  ## Description
