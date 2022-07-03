@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Owner, Post, Comment, Vote } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET /api/owners
 router.get('/', (req, res) => {
@@ -139,6 +140,34 @@ router.put('/:id', (req, res) => {
     })
     .catch(err => {
       console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/edit/:id', withAuth, (req, res) => {
+  Owner.findByPk(req.params.id, {
+    user_name: req.body.user_name,
+    owner_name: req.body.owner_name,
+    dog_name: req.body.dog_name,
+    dog_breed: req.body.dog_breed,
+    dog_size: req.body.dog_size,
+    dog_description: req.body.dog_description,
+    email: req.body.email,
+    password: req.body.password
+  })
+    .then(dbOwnerData => {
+      if (dbOwnerData) {
+        const owner = dbOwnerData.get({ plain: true });
+
+        res.render('edit-profile', {
+          owner,
+          loggedIn: true
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch(err => {
       res.status(500).json(err);
     });
 });
