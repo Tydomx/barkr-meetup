@@ -3,6 +3,16 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, Owner, Comment, Vote } = require('../models');
 
+//render events page
+router.get('/events', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/events');
+    return;
+  }
+
+  res.render('events');
+});
+
 // to populate all posts on hompage
 router.get('/', (req, res) => {
   console.log('======================');
