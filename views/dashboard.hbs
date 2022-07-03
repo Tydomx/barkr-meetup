@@ -16,8 +16,11 @@
         <!--<p class="subtitle is-5 has-text-left location">{{owner.location}}</p>-->
         <p class=" subtitle is-5 has-text-left bio">Bio: {{owner.dog_description}}</p>
         <br>
-        <button class="button is-info is-fullwidth">Edit Profile</button>
+        <a id="edit-profile" class="button is-info is-fullwidth"
+        href="api/owners/edit/{{owner.id}}">Edit Profile</a>
       </div>
   </div>
 </section>
+
+
 

@@ -1,0 +1,89 @@
+<section class="section is-small">
+<div class="columns box mx-6 pt-6 mt-6 has-background-link-light">
+
+    <div class="column">
+    <div class="card has-background-warning">
+    <div class="card-content">
+      <div class="content">
+        <p>
+          <strong class="title is-1">Barkr</strong>
+          <br class="subtitle is-2">
+        A Social Network For Dog Owners &amp; Lovers!
+        </p>
+      </div>
+    <div class="column box has-background-warning-light mx-3">
+    <h2 class="title is-3">Edit profile</h2>
+    <div class="column has-background-warning-light box mx-3">
+    <form method="PUT" id="edit-profile-form">
+      <div class="field">
+        <label class="label owner-edit">Name</label>
+        <div class="control">
+        <input class="input" type="name" id="owner-edit" placeholder="e.g. Juli Tuck aka The Dogmom">
+        </div>
+      </div>
+      <div class="field"> 
+        <label class="label username-edit">Dog Name</label>
+        <div class="control">
+        <input class="input" type="dog-name" id="dogname-edit" placeholder="e.g. Elton John">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Dog Breed</label>
+        <div class="control">
+          <input class="input" id="dogbreed-edit" type="dog_breed" placeholder="e.g. French Bulldog">
+        </div>
+      </div>
+        <div class="field">
+            <label class="label">Dog Size</label>
+            <div class="control">
+                <div class="select">
+                <select id="dogsize-edit">
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                </select>
+                </div>
+            </div>
+        </div>
+       <!-- <div class="field">
+          <label class="label">Location</label>
+          <div class="control">
+              <input class="input" id="location-edit" type="location" placeholder="e.g. Houston,TX">
+          </div>
+        </div> -->
+        <div class="field">
+            <label class="label">Bio</label>
+            <div class="control">
+                <textarea class="textarea" id="dogdescription-edit" type="bio" placeholder="My fur baby, Elton John and I love long walks on the beach, outings at the movies and live concerts."></textarea>
+            </div>
+        </div>
+        <div class="field">
+          <label class="label username-edit">Username</label>
+          <div class="control">
+          <input class="input" type="username" id="username-edit" placeholder="e.g. ilovedogs80">
+          </div>
+        </div>
+        <div class="field ">
+          <label class="label email-edit">Email</label>
+          <div class="control">
+          <input class="input" type="email" id="email-edit" placeholder="e.g. julit@gmail.com">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label password-edit">Password</label>
+          <div class="control">
+          <input class="input" type="password" id="password-edit" placeholder="********">
+          </div>
+     </div>
+    <input class="button is-info has-text-warning" type="submit" value="Edit">
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<script src="/javascript/edit-profile.js"></script>
