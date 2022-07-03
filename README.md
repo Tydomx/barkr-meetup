@@ -21,11 +21,13 @@ We built Barkr with the following:
 * [Express - Sessions](https://www.npmjs.com/package/express-session)
 * [bcrypt](https://www.npmjs.com/package/bcryptjs)
 * [Jest](https://jestjs.io/)
+
+### Screenshots of Barkr App
  
 
 ![Login & Signup Page](/images/login.png "Login & Signup Page")
 
-![Daily Barkr](/images/.png "Daily Barkr — The Homepage")
+![Daily Barkr](/images/homepage.png "Daily Barkr — The Homepage")
 
 ![Profile Page](/images/profilename.png "My Profile")
 
@@ -48,14 +50,14 @@ We built Barkr with the following:
  
  ## Installation
 
- For installation, please install [Node](https://nodejs.dev) and write npm i barkr-meetup to get started.
+ For installation, please install [Node](https://nodejs.dev) and write npm i to get started.
  
  ## Credits
 
-*[Tydomx](https://github.com/Tydomx)
-*[anjulituck](https://github.com/anjulituck)
-*[Abel3213](https://github.com/Abel3213)
-*[rhare86](https://github.com/rhare86)
+* [Tydomx](https://github.com/Tydomx)
+* [anjulituck](https://github.com/anjulituck)
+* [Abel3213](https://github.com/Abel3213)
+* [rhare86](https://github.com/rhare86)
 
  ## License
  
