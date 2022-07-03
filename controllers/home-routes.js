@@ -16,6 +16,16 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+//render events page
+router.get('/events', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/events');
+    return;
+  }
+
+  res.render('events');
+});
+
 // to populate all posts on hompage
 router.get('/', withAuth, (req, res) => {
   Post.findAll({
